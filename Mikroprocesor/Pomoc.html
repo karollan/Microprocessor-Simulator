@@ -1,0 +1,247 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pomoc</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: left;
+        }
+        p, span {
+            color: black;
+        }
+        .code {
+            line-height: 0.5;
+        }
+        h2 {
+            color: #2e6c80;
+        }
+        h1 {
+            color: #5e9ca0; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><span><strong>Program "Mikroprocesor"</strong></span></h1>
+    <h2><span>Jak używać programu?</span></h2>
+    <p><span>Są dwa sposoby na zaprogramowanie mikroprocesora. Można to zrobić za pomocą dostępnych narzędzi lub pisząc kod bezpośrednio.</span></p>
+    <h2><span>Obsługa dostępnego interfejsu graficznego:</span></h2>
+    <h3><span>Tryby adresowania:</span></h3>
+    <p><strong>Rejestrowy</strong> tryb adresowania pozwala na modyfikacje wartości rejestru korzystając z wartości innego rejestru.&nbsp;</p>
+    <p><strong>Natychmiastowy</strong> tryb adresowania przypisuje wybranemu rejestrowi bezpośrednią wartość liczbową wpisaną w polu wartość.&nbsp;</p>
+    <h3><span>Wyb&oacute;r rejestru:</span></h3>
+    <p><span>W polu <strong>DO</strong> wybieramy rejestr, kt&oacute;rego wartość ma być zmodyfikowana.</span></p>
+    <p><span>W polu <strong>Z</strong> wybieramy rejestr, z kt&oacute;rego pobierzemy te wartość (tylko w trybie rejestrowym).</span></p>
+    <p><span>W polu <strong>Wartość</strong> wpisujemy liczbę naturalną, za pomocą kt&oacute;rej zmieniona zostanie wartość rejestru <strong>DO</strong> (tylko w trybie natychmiastowym).</span></p>
+    <h3><span>Dodanie rozkazu:</span></h3>
+    <p><span>Przycisk <strong>DODAJ ROZKAZ</strong> wstawi linie kodu w polu tekstowym <strong>KOD PROGRAMU.</strong>&nbsp;</span></p>
+    <h3><span>Dodanie przerwania:</span></h3>
+    <p>Po wyborze rodzaju przerwania <span>przycisk <strong>DODAJ PRZERWANIE</strong> wstawi linie kodu odpowiadające za wykonanie przerwania w polu tekstowym <strong>KOD PROGRAMU.</strong>&nbsp;</span></p>
+    <h3><span>Tryb wykonania:</span></h3>
+    <p><span><strong>Całościowy</strong> tryb wykonania ustawi wykonywanie programu&nbsp; na wszystkie linie kodu jednocześnie.</span></p>
+    <p><span><strong>Krokowy</strong> tryb wykonania ustawi wykonywanie programu na linia po linii w odstępach 1s. Umożliwia on obserwcje zmian w rejestrach w czasie rzeczywistym.</span></p>
+    <h3><span>Edytor kodu:</span></h3>
+    <p><span><strong>Tryb demonstracyjny</strong> - tryb wykonania kodu, który pozwala tylko na pracę krokową ze zwiększonym interwałem wykonywania linii. Przydatny w celach dydaktycznych aby sprawdzić działanie między innymi przerwań.</span></p>
+    <p><span>Kod można edytować w oknie <strong>KOD PROGRAMU</strong>, program wykona się po kliknięciu przycisku <strong>WYKONAJ</strong>. Przycisk <strong>WYCZYŚĆ&nbsp;</strong>spowoduje usunięcie wszystkich linii kodu.</span></p>
+    <h3><span>Wartość rejestr&oacute;w:</span></h3>
+    <p><span>Program umożliwia obserwacje wartości rejestr&oacute;w w polach <strong>AX-DX</strong>, każdy rejestr podzielony jest na 8 bit&oacute;w starszych H i 8 bit&oacute;w młodszych L.&nbsp;</span></p>
+    <p><span>Przycisk <strong>WYCZYŚĆ REJESTRY</strong> pozwala na ustawienie wartości wszystkich rejestr&oacute;w na 0.</span></p>
+    <p>&nbsp;</p>
+    <h2><span>Manualne programowanie mikroprocesora:</span></h2>
+    <p><span>Aby manualnie zaprogramować mikroprocesor należy wpisywać komendy bezpośrednio w edytorze tekstowym.</span></p>
+    <h3><span>Składnia:</span></h3>
+    <p><span>[TRYB ADRESOWANIA] [ROZKAZ] [REJESTR] [PRZECINEK] [REJESTR]/[LICZBA] [ŚREDNIK]</span></p>
+    <p><span>[STOS] [REJESTR] [ŚREDNIK]</span></p>
+    <p><span>[PRZERWANIE] [ŚREDNIK]</span></p>
+    <h3><span>Słownictwo:</span></h3>
+    <p><span>[TRYB ADRESOWANIA] - REG, IMM</span></p>
+    <p><span>[ROZKAZ] - ADD, SUB, MOV</span></p>
+    <p><span>[REJESTR] - AX, AH, AL, BX, BH, BL, CX, CH, CL, DX, DH, DL</span></p>
+    <p><span>[PRZECINEK] - ","</span></p>
+    <p><span>[LICZBA] - liczba naturalna</span></p>
+    <p><span>[STOS] - PUSH, POP</span></p>
+    <p><span>[PRZERWANIE] - INT[0-9][0-9] lub INT[0-9][A-Z]</span></p>
+    <p><span>[ŚREDNIK] - ";"</span></p>
+    <p><span>[UNDEFINED] - Symbol błędu, oznacza niewłaściwie zapisane słowo.</span></p>
+    <h3><span>Komentarze:</span></h3>
+    <p><span>Zastosowany język podczas kompilacji nie bierze pod uwagę znak&oacute;w występujących po słowie kluczowym [ŚREDNIK], można więc obszar po uznać za przestrzeń na komentarze. Należy pamiętać aby nie przenosić komentarza do nowej linii, ponieważ spowoduje to błąd kompilacji.</span></p>
+    <h3><span>Maksymalne wartości&nbsp; liczb:&nbsp;</span></h3>
+    <p><span>Jako, że każdy rejestr posiada 16 bit&oacute;w miejsca na dane może zmieścić w swojej pamięci skończoną wartość liczbową.&nbsp;</span></p>
+    <p><span>Wartość maksymalna dla rejestrów 16-bit: 32767</span></p>
+    <p><span>Wartość minimalna dla rejestrów 16-bit: -32768</span></p>
+    <p><span>Wartość maksymalna dla rejestrów 8-bit: 127</span></p>
+    <p><span>Wartość minimalna dla rejestrów 8-bit: -128</span></p>
+    <p><span>Każda pr&oacute;ba przekroczenia tych wartości spowoduje błąd kompilacji.</span></p>
+    <h3><span>Dostępne operacje:</span></h3>
+    <p><span>ADD - dodaje wartość liczbową do wskazanego rejestru</span></p>
+    <p><span>SUB - odejmuje wartość liczbową ze wskazanego rejestru</span></p>
+    <p><span>MOV - kopiuje wskazaną wartość liczbową do wybranego rejestru</span></p>
+    <h3><span>Obsługa przerwań:</span></h3>
+    <p><span>Procesor obsługuje 4 rodzaje przerwań zawierające 11 funkcji przerwań. Poniżej znajduje się opis każdej z nich.</span></p>
+    <p><strong>&nbsp;</strong></p>
+
+    <h3><span>Funkcje przerwania INT21:</span></h3>
+
+    <p><strong>AH = 7 ---> Bezpośrednie przypisanie znaku na wejściu, bez echa</strong></p>
+    <p><span>Zwraca: AL = znak odczytany ze standardowego wejścia klawiatury.</span></p>
+    <p><span>Opis: Funkcja po wywołaniu przełącza procesor w stan oczekiwania, wznowi on pracę po odczytaniu pierwszego znaku z wejścia klawiatury. Znak zostanie przypisany do rejestru AL w formie kodu ASCII.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code"><span>IMM MOV AH, 7; wpisanie do rejestru AH numeru funkcji 7 przerwania 21</span></p>
+    <p class="code"><span>INT21; wywołanie przerwania 21</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p>&nbsp;</p>
+
+    <p><strong>AH = 19 ---> Zwróć obecny dysk domyślny.</strong></p>
+    <p><span>Zwraca: AL = dysk domyślny (0 = A:, 1 = B:, etc)</span></p>
+    <p><span>Opis: Funkcja po wywołaniu do rejestru AL przypisuje wartość liczbową odpowiadającą dyskowi domyślnemu tzn. temu, na którym zainstalowany jest system operacyjny.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code" class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code" class="code"><span>IMM MOV AH, 19; wpisanie do rejestru AH numeru funkcji 19 przerwania 21</span></p>
+    <p class="code" class="code"><span>INT21; wywołanie przerwania 21</span></p>
+    <p class="code" class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code" class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p><strong>&nbsp;</strong></p>
+
+    <p><strong>AH = 30 ---> Zwróć wersje DOS.</strong></p>
+    <p><span>Zwraca: AH = ważniejszy numer wersji systemu, AL = numer drugorzędny wersji systemu, CX = numer kompilacji, DX = rodzaj architektury komputera (64 / 32)</span></p>
+    <p><span>Opis: Funkcja po wywołaniu do rejestrów przypisuje informacje o systemie, na którym działa symulator.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV AH, 30; wpisanie do rejestru AH numeru funkcji 30 przerwania 21</span></p>
+    <p class="code"><span>INT21; wywołanie przerwania 21</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p><strong>&nbsp;</strong></p>
+
+    <p><strong>AH = 36 ---> Zwróć wolną przestrzeń dyskową.</strong></p>
+    <p><span>Wejście: DL = numer dysku (0 = domyślny, 1 = A:, 2 = B:, etc)</span></p>
+    <p><span>Zwraca: AX = FFFF jeśli podano nieistniejący dysk.</span></p>
+    <p><span>Zwraca: AX = ilość sektorów na klaster, BX = ilość wolnych klastrów, CX = ilość bajtów na sektor, DX = ilość klastrów na dysku</span></p>
+    <p><span>Opis: Funkcja po wywołaniu do rejestrów informacje o przestrzeni dyskowej wybranego dysku. <strong>UWAGA!</strong> Jeśli dysk zawiera ilość klastrów większą niż 2^16 zawartość rejestrów będzie nieprawdziwa, należy wtedy odczytać wartość z wiadomości podanej podczas wywołania przerwania.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH BX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV AH, 36; wpisanie do rejestru AH numeru funkcji 36 przerwania 21</span></p>
+    <p class="code"><span>INT21; wywołanie przerwania 21</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP BX; odtworzenie ze stosu zapamiętanej wartości BX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+
+    <p><span>Wolna przestrzeń na dysku w bajtach: AX*BX*CX</span></p>
+    <p><span>Całkowita przestrzeń na dysku w bajtach: AX*CX*DX</span></p>
+
+    <p><strong>&nbsp;</strong></p>
+    <p><strong>AH = 47 ---> Zwróć ścieżkę pliku wykonywalnego.</strong></p>
+    <p><span>Zwraca: Wiadomość zawierająca ścieżkę pliku wykonywalnego symulatora.</span></p>
+    <p><span>Opis: Funkcja po wywołaniu generuje okienko z wiadomością informujące o lokalizacji pliku wykonywalnego symulatora na dysku użytkownika.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code" class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code" class="code"><span>IMM MOV AH, 47; wpisanie do rejestru AH numeru funkcji 47 przerwania 21</span></p>
+    <p class="code" class="code"><span>INT21; wywołanie przerwania 21</span></p>
+    <p class="code" class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p><strong>&nbsp;</strong></p>
+
+    <h3><span>Funkcje przerwania INT1A:</span></h3>
+
+    <p><strong>AH = 2 ---> Zwróć obecny czas z zegara RTC.</strong></p>
+    <p><span>Zwraca: CH = godzina, CL = minuta, DH = sekunda, DL = dla czasu letniego 1, inaczej 0</span></p>
+    <p><span>Opis: Funkcja po wywołaniu do rejestrów przypisuje informacje o czasie z zegara RTC.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV AH, 2; wpisanie do rejestru AH numeru funkcji 2 przerwania 1A</span></p>
+    <p class="code"><span>INT1A; wywołanie przerwania 1A</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+
+    <p><strong>&nbsp;</strong></p>
+
+    <p><strong>AH = 4 ---> Zwróć obecną datę z zegara RTC.</strong></p>
+    <p><span>Zwraca: BL = wiek, CX = rok, DH = miesiąc, DL = dzień</span></p>
+    <p><span>Opis: Funkcja po wywołaniu do rejestrów przypisuje informacje o dacie z zegara RTC.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH BX; zapamiętanie wartości BX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV AH, 4; wpisanie do rejestru AH numeru funkcji 4 przerwania 1A</span></p>
+    <p class="code"><span>INT1A; wywołanie przerwania 1A</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP BX; odtworzenie ze stosu zapamiętanej wartości BX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+
+    <p><strong>&nbsp;</strong></p>
+
+    <h3><span>Funkcje przerwania INT33:</span></h3>
+
+    <p><strong>AX = 1 ---> Pokaż wskaźnik myszy.</strong></p>
+    <p><span>Opis: Funkcja inicjuje renderowanie wskaźnika myszy na ekranie monitora.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code"><span>IMM MOV AX, 1; wpisanie do rejestru AX numeru funkcji 1 przerwania 33</span></p>
+    <p class="code"><span>INT33; wywołanie przerwania 33</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p>&nbsp;</p>
+
+    <p><strong>AX = 2 ---> Ukryj wskaźnik myszy.</strong></p>
+    <p><span>Opis: Funkcja inicjuje zaprzestanie renderowania wskaźnika myszy na ekranie monitora. <strong>UWAGA!</strong> Wskaźnik nie będzie widoczny do momentu wywołania funkcji 1 przerwania INT33!</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code"><span>IMM MOV AX, 2; wpisanie do rejestru AX numeru funkcji 2 przerwania 33</span></p>
+    <p class="code"><span>INT33; wywołanie przerwania 33</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p>&nbsp;</p>
+
+    <p><strong>AX = 3 ---> Zwróć pozycje myszy na ekranie oraz status przycisków.</strong></p>
+    <p><span>Zwraca: BX = 0 (brak przyciśniętego przycisku myszy), BX = 1 (przyciśnięty lewy przycisk myszy), BX = 2 (przyciśnięty prawy przycisk myszy), BX = 3 (przyciśnięty środkowy przycisk myszy), CX = X, DX = Y</span></p>
+    <p><span>Opis: Funkcja zwraca informacje o myszy tzn. informacje o przyciśniętych przyciskach oraz jej położenie x, y na ekranie monitora.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH BX; zapamiętanie wartości BX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV AX, 3; wpisanie do rejestru AX numeru funkcji 3 przerwania 33</span></p>
+    <p class="code"><span>INT33; wywołanie przerwania 33</span></p>
+    <p class="code"><span>[Operacje na otrzymanych danych]</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP BX; odtworzenie ze stosu zapamiętanej wartości BX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p>&nbsp;</p>
+
+    <h3><span>Funkcje przerwania INT15:</span></h3>
+
+    <p><strong>AH = 86 ---> Czekaj.</strong></p>
+    <p><span>Opis: Funkcja powoduje wstrzymanie pracy procesora na czas podany w milisekundach zawarty w rejestrach CX i DX, CX zawiera bity starsze, DX młodsze. Jeśli CX i DX = 0, żadna akcja nie jest podjęta.</span></p>
+    <p><span>Przykład użycia:</span></p>
+    <p class="code">PUSH AX; zapamiętanie wartości AX na stosie</p>
+    <p class="code">PUSH CX; zapamiętanie wartości CX na stosie</p>
+    <p class="code">PUSH DX; zapamiętanie wartości DX na stosie</p>
+    <p class="code"><span>IMM MOV CX, 1000; wpisanie do rejestru CX czasu wstrzymania</span></p>
+    <p class="code"><span>IMM MOV DX, 1000; wpisanie do rejestru DX czasu wstrzymania</span></p>
+    <p class="code"><span>IMM MOV AH, 86; wpisanie do rejestru AH numeru funkcji 86 przerwania 15</span></p>
+    <p class="code"><span>INT15; wywołanie przerwania 15</span></p>
+    <p class="code"><span>POP DX; odtworzenie ze stosu zapamiętanej wartości DX</span></p>
+    <p class="code"><span>POP CX; odtworzenie ze stosu zapamiętanej wartości CX</span></p>
+    <p class="code"><span>POP AX; odtworzenie ze stosu zapamiętanej wartości AX</span></p>
+    <p>&nbsp;</p>
+</body>
+</html>
